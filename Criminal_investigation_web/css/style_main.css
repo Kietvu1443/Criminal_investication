@@ -1,0 +1,120 @@
+/* Phần đầu định hình style cho web */
+:root{
+    --rounded:3.2%; /*tên biến global(đổi thông số = apply cho toàn bộ)*/
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+    height: 100%;
+    font-family: 'Roboto',sans-serif;
+}
+
+/* phần chân web */
+footer{
+    margin-top: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* phần navigation bar */
+
+.navbar{
+    position: fixed;
+    width:100%;
+    box-shadow: 0 0 10px gray;
+}
+.navbar_list{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    margin: 0 0px;
+}
+.TG_logo{
+    border: 10px;
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    border-radius: 20%;
+}
+.navbar_list_logo{
+    list-style: none;
+    border-radius: 20%;
+    margin-right: 400px; /*tips*/ 
+    cursor: pointer;
+}
+
+/* phần box item */
+
+.navbar_list_items {
+  display: inline-block;
+  position: relative;
+  list-style: none;
+  font-weight: bold;
+  position: relative;
+  padding: 24px 16px;
+  cursor: pointer;
+  display: inline-block; 
+}
+.navbar_list_items:is(:hover,:focus) .nav_list_items_drops{
+    opacity: 1;
+    visibility: visible;
+}
+.navbar_list_items::after{
+    content: "";
+    width: 0;
+    height: 4.8px;
+    border-radius: var(--rounded);
+    position: absolute;
+    left: 16px;
+    bottom: 12.8px;
+    background-color: lightslategray;
+
+    transition: width 200ms ease-in;
+}
+.navbar_list_items:hover::after{
+    width: 100%;
+}
+
+/* phần bên trong box item */
+
+.nav_list_items_drops{
+    position: absolute;
+    top: 64px;
+    left: -16px;
+    box-shadow: 0 0 10px lightgray;
+    background-color: white;
+    border-radius: var(--rounded);
+    width: 192px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms ease-in-out;
+
+}
+.nav_list_items_drops li{
+   list-style: none;
+   padding: 8px 16px;
+   border-radius: var(--rounded);
+   transition: background-color 200ms ease-in-out;
+}
+.nav_list_items_drops li:is(:hover,:focus){
+  background-color: crimson;
+}
+
